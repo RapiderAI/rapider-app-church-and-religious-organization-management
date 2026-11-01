@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rapider Church &amp; Religious Organization Management</title>
+  <script src="https://kit.fontawesome.com/5b23df26dc.js" crossorigin="anonymous" defer></script>
+  <script src="/assets/js/rapider-components.js" defer></script>
+  <link rel="stylesheet" href="/assets/themes/rapider-tailwind-theme.css">
+  <link rel="stylesheet" href="/assets/themes/crm-expenses-design.css">
+  <style>
+    body, html { margin: 0; padding: 0; height: 100%; width: 100%; overflow: hidden; }
+    iframe#appFrame { width: 100%; height: 100%; border: none; }
+  </style>
+</head>
+<body>
+  <iframe id="appFrame" src="pages/dashboard/dashboard.html"></iframe>
+  <script>
+    const routes = {
+  "dashboard": "pages/dashboard/dashboard.html",
+  "congregants": "pages/congregants/congregants.html",
+  "assimilation-groups": "pages/assimilation-groups/assimilation-groups.html",
+  "child-checkin": "pages/child-checkin/child-checkin.html",
+  "service-plans": "pages/service-plans/service-plans.html",
+  "volunteer-rosters": "pages/volunteer-rosters/volunteer-rosters.html",
+  "pastoral-care": "pages/pastoral-care/pastoral-care.html",
+  "sacraments-lifecycle": "pages/sacraments-lifecycle/sacraments-lifecycle.html",
+  "giving-batches": "pages/giving-batches/giving-batches.html",
+  "congregant-detail": "pages/congregant-detail/congregant-detail.html",
+  "service-plan-detail": "pages/service-plan-detail/service-plan-detail.html",
+  "checkin-drawer": "pages/checkin-drawer/checkin-drawer.html",
+  "giving-batch-drawer": "pages/giving-batch-drawer/giving-batch-drawer.html"
+};
+    function handleHash() {
+      const hash = window.location.hash.replace(/^#\/?/, '').split('?')[0];
+      const route = hash || 'dashboard';
+      const target = routes[route] || routes['dashboard'];
+      const iframe = document.getElementById('appFrame');
+      if (iframe) iframe.src = target;
+    }
+    window.addEventListener('hashchange', handleHash);
+    window.addEventListener('load', handleHash);
+  </script>
+</body>
+</html>
